@@ -1,0 +1,89 @@
+@startuml
+
+class JuegoSnake
+class Control
+class Jugador
+class Serpiente
+class Cabeza
+class Paredes
+class Comida
+class Manzana
+class Color
+class Rojo
+class Animacio
+class EfectosSonido
+class Posicion
+class Direccion
+class ScoreManager
+class TemporizadorJuego
+class DetectorColisiones
+class EstadoJuego
+class EstadoActivo
+class EstadoPausado
+class EstadoGameOver
+class MenuPrincipal
+class Boton
+class ConfiguracionJuego
+class Skin
+class Dificultad
+class VelocidadJuego
+class PowerUp
+class IA
+class Aleatorio
+class Record
+class ContadorPuntos
+
+JuegoSnake *-- Control
+JuegoSnake *-- Jugador
+JuegoSnake *-- Serpiente
+JuegoSnake *-- Paredes
+JuegoSnake *-- Comida
+JuegoSnake o-- ScoreManager
+JuegoSnake o-- TemporizadorJuego
+JuegoSnake o-- DetectorColisiones
+JuegoSnake o-- Animacio
+JuegoSnake o-- EfectosSonido
+JuegoSnake *-- EstadoJuego
+JuegoSnake *-- MenuPrincipal
+JuegoSnake *-- ConfiguracionJuego
+JuegoSnake *-- PowerUp
+JuegoSnake o-- IA
+
+Jugador o-- Control
+Jugador o-- Serpiente
+
+Serpiente *-- Cabeza
+Serpiente *-- Posicion
+Serpiente o-- Direccion
+Serpiente o-- Color
+Serpiente o-- PowerUp
+
+Paredes *-- Posicion
+
+Manzana --|> Comida
+Comida *-- Posicion
+
+Rojo --|> Color
+
+EstadoActivo --|> EstadoJuego
+EstadoPausado --|> EstadoJuego
+EstadoGameOver --|> EstadoJuego
+
+MenuPrincipal *-- Boton
+
+ConfiguracionJuego *-- Skin
+ConfiguracionJuego *-- Dificultad
+ConfiguracionJuego *-- VelocidadJuego
+
+ScoreManager o-- ContadorPuntos
+ScoreManager *-- Record
+
+DetectorColisiones o-- Serpiente
+DetectorColisiones o-- Paredes
+DetectorColisiones o-- Comida
+DetectorColisiones o-- PowerUp
+
+Aleatorio --|> IA
+IA o-- Serpiente
+
+@enduml
