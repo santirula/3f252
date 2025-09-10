@@ -4,11 +4,10 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-   cout<<"Hola Mundo"<<endl;
+    cout << "Hola Mundo" << endl;
     Foco foco;
     foco.encender();
-    cout<<"Estado foco"<<foco.LeerEstado()<<endl;
-
+    cout << "Estado foco" << foco.LeerEstado() << endl;
 
     return 0;
 }
